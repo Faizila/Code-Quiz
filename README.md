@@ -9,5 +9,6 @@
 
 # Live Link of the deployed application
 
+https://faizila.github.io/Code-Quiz/
 
 # Screenshots of the deployed application
