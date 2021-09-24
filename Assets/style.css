@@ -1,5 +1,5 @@
         *{
-            background-color: gray;
+            background-color: rgb(167, 154, 154);
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
@@ -10,30 +10,45 @@
         }
         
         
-    .box {
+    #box {
           position: absolute;
           left: 25%;
           top: 25%;
           width: 700px;
           height: 400px;
           border: 6px dotted rgb(19, 6, 19);
+          text-align: center;
       }
 
-      ul {
+      h2 {
         font-size: 20px;
         text-align: center;
-        margin-top: 5%;
+        margin-top: 10%;
       }
 
     .start {
           background-color: purple;
-          margin-left: 38%;
           margin-top: 10%;
           padding: 15px 30px;
           font-size: 20px;
           color: white;
           border-radius: 4px;
       }
+      .block {
+  text-align: center;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+      }
+      
+#questionList {
+  display: inline-block;
+  text-align: left;
+  list-style: none;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
       .highscore,
       .timer {
@@ -46,6 +61,7 @@
 
       .timer {
           float: right;
+          display: block;
       }
 
 
