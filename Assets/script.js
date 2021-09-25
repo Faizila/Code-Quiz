@@ -67,11 +67,13 @@ startButton.addEventListener("click", function () {
       timerEl.textContent = "Timer:  " + secondsLeft + " " + "seconds";
       if (secondsLeft <= 0) {
         clearInterval(holdInterval);
+        finish();
       }
     }, 1000);
   }
   render(questIndex);
 });
+// console.log(timerEl)
 
 // Displays questions on the page
 var questIndex = 0;
@@ -93,5 +95,78 @@ function render(questIndex) {
     liItem.textContent = newItem;
     questionsList.appendChild(olCreate);
     olCreate.appendChild(liItem);
+    liItem.addEventListener("click", compare);
   });
+}
+
+// comparison user options: Correct or Wrong
+function compare(event) {
+  var compareAnswer = event.target;
+
+  if (compareAnswer.matches("li")) {
+    var divCreate = document.createElement("div");
+    divCreate.setAttribute("id", "divCreate");
+    if (compareAnswer.textContent === questions[questIndex].answer) {
+      score++;
+      divCreate.textContent = "Correct!";
+    } else {
+      score--;
+      secondsLeft = secondsLeft - penalty;
+      divCreate.textContent = "Wrong!";
+    }
+  }
+
+  // Determines user is on which question number
+  questIndex++;
+
+  if (questIndex >= questions.length) {
+    finish();
+  } else {
+    render(questIndex);
+  }
+  questionsList.appendChild(divCreate);
+}
+
+// End of Questions
+function finish() {
+  questionsList.innerHTML = "";
+  timerEl.innerHTML = "";
+
+  // Finish!
+  var H2 = document.createElement("h2");
+  H2.setAttribute("id", "H2");
+  H2.textContent = "Finish!";
+  questionsList.appendChild(H2);
+
+  var P = document.createElement("p");
+  P.setAttribute("id", "P");
+  questionsList.appendChild(P);
+
+  // Final score
+  if (secondsLeft >= 0) {
+    var remainingTime = secondsLeft;
+    var createP2 = document.createElement("p");
+    clearInterval(holdInterval);
+    P.textContent = "Your final score is: " + remainingTime;
+    // add final score
+    questionsList.appendChild(createP2);
+  }
+// Submit Initials
+  var initialLabel = document.createElement("label");
+  initialLabel.setAttribute("id", "createLabel");
+  initialLabel.textContent = "Enter your initials: ";
+  // add placeholder
+  questionsList.appendChild(initialLabel);
+
+  var textInput = document.createElement("input");
+  textInput.setAttribute("type", "text");
+  textInput.setAttribute("id", "initials");
+  textInput.textContent = "";
+  questionsList.appendChild(textInput);
+
+  var buttonSubmit = document.createElement("button");
+  buttonSubmit.setAttribute("type", "submit");
+  buttonSubmit.setAttribute("id", "submit");
+  buttonSubmit.textContent = "submit";
+  questionsList.appendChild(buttonSubmit);
 }
