@@ -5,25 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./Assets/reset.css">
-    <link rel="stylesheet" href="./Assets/style.css">
+    <link rel="stylesheet" href="./Assets/reset.css" />
+    <link rel="stylesheet" href="./Assets/style.css" />
 
     <!-- Title -->
-<title>Code Quiz</title>
+    <title>Code Quiz</title>
   </head>
   <body>
-    <div id="main-container">
-        <div id="timer"></div>
-        <div id="questions">
-        <h1>Highscores</h1>
-        <!-- List of Highscores -->
-        <ol id="highscore"></ol>
-
-        <!-- Buttons -->
-        <button class="button"><a href="index.html">Go Back</a></button>
-        <button id="clear" class="button">Clear Highscores</button>
-        </div>
-    </div>
+    <h1>Highscores</h1>
+    <nav>
+    <button class="button"><a href="index.html">Go Back</a></button>
+    <button class="button float-right">Clear Highscores</button>
+  </nav>    
+    <div class="box">
+      <!-- List of Highscores -->
+      <ol id="highscores"></ol>
+      </div>
     <script src="./Assets/script.js"></script>
-</body>
+  </body>
 </html>
