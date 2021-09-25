@@ -15,23 +15,27 @@
     <h1>Coding Quiz Challenge</h1>
     <nav>
       <!-- buttons -->
-      <button id="highscore" class="highscore">View Highscores</button>
-      <button id="result" class="timer">Result</button>     
-      <button id="timer" class="timer">Timer:   </button>  
+      <button class="button highscores"><a href="scores.html">View Highscores</a></button>
+      <!-- <button class="button">Result</button>      -->
+      <button class="button timer">Timer: 75 seconds  </button>  
     </nav>
-        <div id="box" class="container">
-      <h2>Try to answer the code-related questions within the time limit. Keep in mind that wrong answer will penalize your score/time by ten seconds!<h2>        
-        <!-- Button -->
-        <button id="startbutton" class="start">Start Quiz</button>
-     </div>
-     <div class="container1">
-      <section class="block">
-        <ul id="questionList"></ul>
-        <div id="result"></div>
-      </section>
-     </div>
-     <div class="container"></div> 
-        
+<main>
+    <div class="box">
+      <div id="questionsList">
+    <p>- This is a timed coding quiz of five(5) multiple-choice questions.<br>
+      <br> 
+      - Try to answer all the questions within the overall time limit of 75 seconds.<br>
+      <br>
+      - Keep in mind that wrong answer will penalize your score/time by ten(10) seconds!<br>
+      <br>
+      - Good Luck!</p>
+    <ol id="options"></ol>
+
+    <!-- Start button -->
+    <button class="start">Start Quiz</button>
+    </div>
+  </div>
+</main>      
     <script src="./Assets/script.js"></script>
   </body>
 </html>
