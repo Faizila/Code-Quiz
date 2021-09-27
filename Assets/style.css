@@ -78,16 +78,18 @@ button:hover {
   outline: none;
 }
 
-.correctEl-style, #hr-spot {
+.correctEl-style,
+.hr {
   color: rgb(53, 34, 58);
   font-style: italic;
   border-color: none;
 }
 
-#score-spot {
-  font-size: 40px;
-  color: #2d0c30;
-  padding-bottom: 1.5rem;
+.displayScore {
+  font-size: 36px;
+  margin-top: 10px;
+  color: #160718;
+  margin-bottom: 12px;
 }
 
 hr {
