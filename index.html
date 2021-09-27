@@ -1,80 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="./Assets/reset.css" />
-    <link rel="stylesheet" href="./Assets/style.css" />
+    <link rel="stylesheet" href="./Assets/reset.css"/>
+    <link rel="stylesheet" href="./Assets/style.css"/>
 
     <!-- Title -->
-    <title>Code Quiz</title>
+  <title>Code Quiz</title>
   </head>
   <body>
     <h1>Coding Quiz Challenge</h1>
     <!-- nav buttons -->
     <nav>
-      <button class="button view-highscore">
-        <a href="#">View Highscores</a>
-      </button>
-      <button id="timer" class="button float-right timer">
-        Timer: 75 seconds
-      </button>
+      <button class="button view-highscore"><a href="#">View Highscores</a></button>
+      <button id="timer" class="button float-right timer">Timer: 75 seconds</button>
     </nav>
     <!-- main -->
     <main>
       <div id="start-box" class="box main-style">
         <p class="main information">
-          - This is a timed coding quiz of five(5) multiple-choice questions.<br />
-          <br />
+          - This is a timed coding quiz of five(5) multiple-choice questions.<br>
+          <br>
           - Try to answer all the questions within the overall time limit of 75
-          seconds.<br />
-          <br />
+          seconds.<br>
+          <br>
           - Keep in mind that wrong answer will penalize your score/time by
-          ten(10) seconds!<br />
-          <br />
+          ten(10) seconds!<br>
+          <br>
           - Good Luck!
         </p>
-
         <!-- Start button -->
         <button class="start button" id="start-quiz">Start Quiz</button>
       </div>
-
       <!-- questions -->
       <div class="main-style" id="questions-box">
         <h2 id="quiz-question">Questions</h2>
         <div id="option-buttons"></div>
         <div class="hr"></div>
-        <div id="correct-wrong" class="correctEl-style"></div>
+        <div id="correct-wrong"></div>
       </div>
-
       <!-- End of questions -->
       <div class="main-style" id="finish-box">
         <h3>Finish!</h3>
         <div class="displayScore"></div>
         <div id="compare"></div>
-        <form id="add-initials" class="form-inline">
+          <form id="add-initials">
           <label for="initials">Enter your initials:</label>
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            placeholder="Initials"
-            id="initials"
-            required
-          />
+          <input type="text" class="form-control" placeholder="Initials" id="initials" required/>
           <button type="submit" class="bstyle">Submit</button>
         </form>
       </div>
-
       <!-- highscores -->
       <div class="main-style" id="highscores-box">
         <h3>"Highscores"</h3>
         <ol id="scores-list"></ol>
         <button class="bstyle"><a href="index.html">Play Again</a></button>
-        <button type="button" id="clear-scores" class="bstyle">
-          Clear Highscores
-        </button>
+        <button type="button" id="clear-scores" class="bstyle">Clear Highscores</button>
       </div>
     </main>
     <script src="./Assets/script.js"></script>
