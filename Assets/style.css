@@ -2,7 +2,7 @@
   background-color: rgb(204, 188, 188);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-    font-size: 22px;
+  font-size: 22px;
 }
 
 h1 {
@@ -30,7 +30,7 @@ h3 {
   font-size: 20px;
   width: 45%;
   margin: auto;
-  }
+}
 
 .start {
   background-color: rgb(66, 23, 66);
@@ -86,11 +86,11 @@ button:hover {
 }
 
 hr {
-    border: none;
-    background-color: grey;
-    color: grey;
-    height: 1px;
-    color: rgb(53, 34, 58);
+  border: none;
+  background-color: grey;
+  color: grey;
+  height: 1px;
+  color: rgb(53, 34, 58);
   font-style: italic;
   border-color: none;
 }

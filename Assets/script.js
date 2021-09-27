@@ -66,42 +66,38 @@ var questionList = [
 startButton.addEventListener("click", function () {
   questionBox.style.display = "block";
   startBox.style.display = "none";
-  // console.log(questionList[0].question)
 
   startQuiz();
   startTimer();
-  // console.log(questionList[0].options[0])
 });
 
-// Timer
+// Timer starts
 var secondsLeft = 75;
 var currentIndex = 0;
 var correctAnswers = 0;
 var wrongAnswers = 0;
-var penalty = 10;
-let timerInterval
-var score = 0
+let timerInterval;
+var score = 0;
 
 function startTimer() {
-   timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
-    
+
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
 
-        questionBox.style.display = "none";
-        finish.style.display = "block";
-        compare.innerHTML = `You got ${correctAnswers} correct and ${wrongAnswers} wrong answers.`;
-        displayScore.innerHTML = `Score: ${score + secondsLeft}`;
-        secondsLeft = 0;
+      questionBox.style.display = "none";
+      finish.style.display = "block";
+      compare.innerHTML = `You got ${correctAnswers} correct and ${wrongAnswers} wrong answers.`;
+      displayScore.innerHTML = `Score: ${score + secondsLeft}`;
+      secondsLeft = 0;
     }
     timerEl.textContent = "Time: " + secondsLeft + " " + "seconds";
   }, 1000);
 }
 
-// Quiz
+// Quiz starts
 function startQuiz() {
-  // console.log(currentIndex);
   if (currentIndex === questionList.length) {
     questionBox.style.display = "none";
     finish.style.display = "block";
@@ -122,26 +118,19 @@ function startQuiz() {
   document.querySelectorAll(".option-btns").forEach(function (each) {
     each.addEventListener("click", function (event) {
       var chosenOption = event.target.innerText;
-      // console.log(chosenOption);
-      // console.log(questionList[currentIndex].answer);
       if (chosenOption === questionList[currentIndex].answer) {
-        // console.log("Correct!")
         correctAnswers++;
         correctWrong.textContent = "Correct!";
       } else {
-        // console.log("Wrong!")
         wrongAnswers++;
         correctWrong.textContent = "Wrong!";
-        secondsLeft -= 10;
-        // secondsLeft = secondsLeft -10;
-        // alert("wrong!")
+        secondsLeft = secondsLeft - 10;
       }
       currentIndex++;
       var lineEl = document.createElement("HR");
       hr.appendChild(lineEl);
 
       startQuiz();
-      //timeouts the correct/wrong text and hr tag
       setTimeout(function () {
         correctWrong.textContent = "";
         hr.removeChild(lineEl);
@@ -153,7 +142,10 @@ function startQuiz() {
     questionList[currentIndex].question;
 }
 
-document.querySelector(".view-highscore").addEventListener("click", function () {
+// View highscores
+document
+  .querySelector(".view-highscore")
+  .addEventListener("click", function () {
     finish.style.display = "none";
     questionBox.style.display = "none";
     startBox.style.display = "none";
@@ -161,63 +153,54 @@ document.querySelector(".view-highscore").addEventListener("click", function () 
     highScores.style.display = "block";
 
     var finalScoreLocal = JSON.parse(localStorage.getItem("initials"));
-    // console.log(finalScoreLocal);
-
-    finalScoreLocal = finalScoreLocal.sort((a, b) =>{
-      return b.score - a.score
-    }) 
+    finalScoreLocal = finalScoreLocal.sort((a, b) => {
+      return b.score - a.score;
+    });
 
     scoresList.innerHTML = "";
     for (let i = 0; i < finalScoreLocal.length; i++) {
       var highscoreEl = document.createElement("li");
       highscoreEl.innerText = `${finalScoreLocal[i].initials} - ${finalScoreLocal[i].score}`;
-      // console.log(highscoreEl);
       scoresList.appendChild(highscoreEl);
     }
-
   });
 
-  // Local storage
-  var addInitials = document.getElementById("add-initials");
+// Local storage
+var addInitials = document.getElementById("add-initials");
 
 addInitials.addEventListener("submit", function (event) {
   event.preventDefault();
   var initials = document.getElementById("initials").value;
- score = correctAnswers;
-  // console.log(initials, score);
+  score = correctAnswers;
+
   var finalScoreLocal = [];
-  
+
   if (localStorage.getItem("initials")) {
     var finalScoreLocal = JSON.parse(localStorage.getItem("initials"));
   }
-  // console.log(score)
-  // console.log(secondsLeft)
-    finalScoreLocal.push({
-      initials: initials,
-      score: score + secondsLeft,
+  finalScoreLocal.push({
+    initials: initials,
+    score: score + secondsLeft,
   });
   localStorage.setItem("initials", JSON.stringify(finalScoreLocal));
+  finalScoreLocal = finalScoreLocal.sort((a, b) => {
+    return b.score - a.score;
+  });
 
-  finalScoreLocal = finalScoreLocal.sort((a, b) =>{
-    return b.score - a.score
-  }) 
-    
   finish.style.display = "none";
   highScores.style.display = "block";
   document.querySelector("#scores-list").innerHTML = "";
-    for (let i = 0; i < finalScoreLocal.length; i++) {
-      var highscoreEl = document.createElement("li");
-      highscoreEl.innerText = `${finalScoreLocal[i].initials} - ${finalScoreLocal[i].score}`;
-      // console.log(highscoreEl);
-      document.querySelector("#scores-list").appendChild(highscoreEl);
-    }
- });
-
- // Clear Highscores list
- var clearScores = document.getElementById("clear-scores");
-
- clearScores.addEventListener("click", function (){
-  scoresList.style.display = "none";
-    localStorage.clear();
+  for (let i = 0; i < finalScoreLocal.length; i++) {
+    var highscoreEl = document.createElement("li");
+    highscoreEl.innerText = `${finalScoreLocal[i].initials} - ${finalScoreLocal[i].score}`;
+    document.querySelector("#scores-list").appendChild(highscoreEl);
+  }
 });
 
+// Clear Highscores list
+var clearScores = document.getElementById("clear-scores");
+
+clearScores.addEventListener("click", function () {
+  scoresList.style.display = "none";
+  localStorage.clear();
+});
