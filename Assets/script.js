@@ -39,14 +39,14 @@ var questionList = [
   },
   {
     question:
-      "3. In CSS, which of the following selector matches a element based on its class attribute?",
+      "3. Which built-in method returns the index within the calling String object of the first occurrence of the specified value?",
     options: [
-      "A. The Class Selector",
-      "B. The Type Selector",
-      "C. The Descendant Selector",
-      "D. The Universal Selector",
+      "A. indexOf()",
+      "B. getIndex()",
+      "C. location()",
+      "D. None of the above.",
     ],
-    answer: "A. The Class Selector",
+    answer: "A. indexOf()",
   },
   {
     question:
@@ -86,7 +86,6 @@ function startTimer() {
    timerInterval = setInterval(function () {
     secondsLeft--;
     
-
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
 
@@ -106,8 +105,7 @@ function startQuiz() {
   if (currentIndex === questionList.length) {
     questionBox.style.display = "none";
     finish.style.display = "block";
-    
-    compare.innerHTML = `You got ${correctAnswers} correct! and ${wrongAnswers} wrong!`;
+    compare.innerHTML = `You got ${correctAnswers} correct and ${wrongAnswers} wrong answers.`;
     displayScore.innerHTML = `Score: ${score + secondsLeft}`;
     clearInterval(timerInterval);
     return;
@@ -222,3 +220,4 @@ addInitials.addEventListener("submit", function (event) {
   scoresList.style.display = "none";
     localStorage.clear();
 });
+
