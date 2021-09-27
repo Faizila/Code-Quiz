@@ -2,12 +2,18 @@
   background-color: rgb(204, 188, 188);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+    font-size: 25px;
 }
 
 h1 {
   font-size: 50px;
   text-align: center;
   margin-top: 35px;
+}
+
+h3 {
+  font-size: 40px;
+  text-align: center;
 }
 
 .box {
@@ -20,29 +26,30 @@ h1 {
   border: 6px dotted rgb(19, 6, 19);
 }
 
-.main {
+.main-style {
   font-size: 20px;
-  text-align: left;
-  margin-top: 10%;
-  margin-left: 5%;
-}
+  width: 45%;
+  margin: auto;
+  }
 
 .start {
-  background-color: purple;
+  background-color: rgb(66, 23, 66);
   margin-top: 5%;
-  padding: 15px 30px;
+  padding: 15px 25px;
   font-size: 20px;
   color: white;
   border-radius: 4px;
 }
 
 .button {
-  background-color: purple;
-  padding: 15px 32px;
+  background-color: rgb(66, 23, 66);
+  padding: 15px 25px;
   font-size: 20px;
   color: white;
   border-radius: 4px;
+  cursor: pointer;
 }
+
 button:hover {
   background-color: rgb(76, 72, 80);
 }
@@ -51,46 +58,47 @@ button:hover {
   float: right;
 }
 
-#questionsList {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+#start-box {
+  text-align: center;
+  margin: auto;
+  width: 45%;
   font-size: 20px;
-  margin-top: 5%;
 }
 
-li {
-  background-color: rgb(84, 43, 122);
-  color: white;
-  margin-top: 4%;
-  margin-left: 10%;
-  text-align: left;
-  padding: 5px;
-  width: 25%;
-  font-size: 16px;
+.bstyle {
+  justify-content: center;
+  border: none;
+  background-color: #150516;
+  border-radius: 5px;
+  color: rgb(228, 213, 213);
+  font-size: 20px;
+  margin: 8px;
+  padding: 9px;
+  cursor: pointer;
+  outline: none;
 }
 
-#divCreate {
+.correctEl-style, #hr-spot {
+  color: rgb(53, 34, 58);
   font-style: italic;
-  color: rgb(22, 18, 18);
-  margin-top: 20px;
-  border-top: 1px solid rgb(20, 19, 19);
+  border-color: none;
 }
 
-#H2 {
+#score-spot {
   font-size: 40px;
-  color: purple;
-  margin-top: 20%;
+  color: #2d0c30;
+  padding-bottom: 1.5rem;
 }
 
-#submit {
-  background-color: purple;
-  padding:8px 15px;
-  font-size: 18px;
-  color: white;
-  border-radius: 4px;
-  margin-left: 5%;
+hr {
+    border: none;
+    background-color: grey;
+    color: grey;
+    height: 1px;
 }
 
-#initials {
-  margin-top: 10%;
+#questions-box,
+#finish-box,
+#highscores-box {
+  display: none;
 }
